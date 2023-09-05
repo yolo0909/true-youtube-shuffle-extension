@@ -1,0 +1,44 @@
+{
+  "manifest_version": 3,
+  "name": "true-youtube-shuffler-extension",
+  "version": "1.0",
+  "description": "True shuffle for youtube videos extension",
+  
+  "action": {
+    "default_icon": {
+      "16": "images/icon16.png",
+      "32": "images/icon32.png",
+      "48": "images/icon48.png",
+      "128": "images/icon128.png"
+    }
+
+  },
+  
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "scripts/contentScript.js"
+      ],
+      "run_at": "document_end"
+      
+    }
+  ],
+  
+  "permissions": [
+    "activeTab",
+    "tabs",
+    "scripting",
+    "webNavigation"
+  ],
+
+  "host_permissions": [
+    "<all_urls>"
+  ],
+
+  "background": {
+    "service_worker": "scripts/background.js"
+  }
+}
